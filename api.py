@@ -1,5 +1,4 @@
 import requests
-import numpy as np
 from datetime import date, timedelta
 
 
@@ -9,7 +8,8 @@ api_key = "5218e35066bd174fcc60095f853f4a3e8bf62785177f49e61af1f888c01e10ba"
 
 
 def pad_list(lst, max_length):
-    return lst + [np.nan] * (max_length - len(lst))
+    nan = float('nan')
+    return lst + [nan] * (max_length - len(lst))
 
 
 def remove_lower_than_10(numbers):
@@ -322,7 +322,6 @@ def getpastfivematch(teamid=80, trainData=False):
     if respond.status_code ==  200:
         if 'result' in respond.json():
             featuredata = respond.json()['result']
-            print(featuredata)
             for match in featuredata:
                 homeid = match['home_team_key']
                 awayid = match['away_team_key']
