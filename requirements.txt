@@ -1,4 +1,4 @@
 Flask==3.0.1
-pandas==2.2.0
+git+https://github.com/tboysmokes/pandas.git
 requests==2.31.0
 scikit-learn==1.4.0
